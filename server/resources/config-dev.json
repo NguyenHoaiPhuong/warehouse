@@ -1,0 +1,7 @@
+{
+    "ServerHost": "localhost",
+    "ServerPort": "27017",
+    "ServerUsername": "",
+    "ServerPassword": "",
+    "DatabaseName": "ITV"
+}
