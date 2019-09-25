@@ -3,8 +3,6 @@
 * npx create-react-app client --typescript
 ### React
 * react-scripts-ts
-### Babel
-* babel-plugin-transform-decorators-legacy
 ### Typescript
 * typescript
 * @types/react
@@ -14,3 +12,8 @@
 ### Material UI
 * @material-ui/core
 * @material-ui/icons
+### Redux
+* react-redux
+* redux-thunk
+### Router
+* react-router-dom
