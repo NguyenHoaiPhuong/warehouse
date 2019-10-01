@@ -9,6 +9,7 @@
 * @types/react-dom
 * @types/jest
 * @types/node
+* @types/react-router-dom
 ### Material UI
 * @material-ui/core
 * @material-ui/icons
