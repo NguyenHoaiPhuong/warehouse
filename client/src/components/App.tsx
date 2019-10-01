@@ -5,6 +5,7 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import { pink, blue } from '@material-ui/core/colors';
 import './App.css';
 import { store } from '../store/store';
+import NavigationBar from './NavigationBar/AppBar'
 
 const theme = createMuiTheme({
   palette: {
@@ -19,7 +20,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <MuiThemeProvider theme={theme}>
-            Hello world
+            <NavigationBar />
           </MuiThemeProvider>
         </Router>
       </Provider>      
