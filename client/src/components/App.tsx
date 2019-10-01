@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import { pink, blue } from '@material-ui/core/colors';
 import './App.css';
-import { store } from '../store/Store';
+import { store } from '../store/store';
 
 const theme = createMuiTheme({
   palette: {
