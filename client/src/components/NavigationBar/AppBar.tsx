@@ -1,5 +1,6 @@
 import * as React from 'react';
 import clsx from 'clsx';
+
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -17,14 +18,6 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
-import { withStyles } from '@material-ui/core/styles';
-
-import { styles } from './styles'
-import { UserState } from '../../states/userState';
-import { Dispatch, bindActionCreators } from 'redux';
-import { login, UserAction } from '../../actions/userAction';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 
 interface Props {
   classes: any;
@@ -35,7 +28,7 @@ interface States {
   open: boolean
 }
 
-class MiniDrawer extends React.Component<Props, States> {
+export class MiniDrawer extends React.Component<Props, States> {
   constructor(props: Props) {
     super(props)
   
@@ -138,10 +131,3 @@ class MiniDrawer extends React.Component<Props, States> {
     );
   }
 }
-
-const mapStateToProps = (state: UserState) => ({
-  user: state,
-});
-
-
-export default withRouter(connect(mapStateToProps, {})(withStyles(styles as any, { withTheme: true })(MiniDrawer as any)) as any);

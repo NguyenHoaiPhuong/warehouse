@@ -5,7 +5,7 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import { pink, blue } from '@material-ui/core/colors';
 import './App.css';
 import { store } from '../store/store';
-import NavigationBar from './NavigationBar/AppBar'
+import NavigationBar from '../containers/NavigationBar/AppBar'
 
 const theme = createMuiTheme({
   palette: {
