@@ -19,6 +19,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
 
+import { withStyles } from '@material-ui/core/styles';
+import { styles } from './styles'
+
 interface Props {
   classes: any;
   theme?: any;
@@ -28,7 +31,7 @@ interface States {
   open: boolean
 }
 
-export class MiniDrawer extends React.Component<Props, States> {
+class MiniDrawer extends React.Component<Props, States> {
   constructor(props: Props) {
     super(props)
   
@@ -131,3 +134,5 @@ export class MiniDrawer extends React.Component<Props, States> {
     );
   }
 }
+
+export default withStyles(styles as any, { withTheme: true })(MiniDrawer)
