@@ -9,7 +9,25 @@ type Props = {
     type: string
 }
 
-export default class InputField extends React.Component<Props, {}> {
+type States = {
+    value: string
+}
+
+export default class InputField extends React.Component<Props, States> {
+    constructor(props: Props) {
+        super(props)
+    
+        this.state = {
+            value: ""
+        }
+
+        this.handleChange = this.handleChange.bind(this)
+    }
+    
+    handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+        this.setState({value: event.currentTarget.value})
+    }
+
     render() {
         const {id, name, label, autoComplete, type} = this.props
         return(
@@ -24,6 +42,8 @@ export default class InputField extends React.Component<Props, {}> {
                 autoComplete={autoComplete}
                 type={type}
                 autoFocus
+                value={this.state.value}
+                onChange={this.handleChange}
             />
         )
     }

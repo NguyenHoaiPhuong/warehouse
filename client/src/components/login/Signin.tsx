@@ -1,5 +1,6 @@
 import * as React from 'react'
 import clsx from 'clsx';
+import { History } from 'history';
 
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -22,33 +23,35 @@ import SubmitButton from './SubmitButton'
 import styles from './styles'
 
 type Props = {
-    classes: CSSProperties
+    classes: CSSProperties,
+    history : History
 }
 
-class Signin extends React.Component<Props, {}> {
+type States = {
+    username:string,
+    password: string
+}
+
+class Signin extends React.Component<Props, States> {
     constructor(props: Props) {
         super(props)
     
         this.state = {
-             
+            username: "",
+            password: ""
         }
 
-        this.handleSigninSubmit = this.handleSigninSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     
-    handleSigninSubmit(event: React.FormEvent) {
+    handleSubmit(event: React.FormEvent) {
         event.preventDefault();
 
-        // let user = {
-        //     name: event.target.username.value,
-        //     password: event.target.password.value
-        // }
-
-        // // Fake authentication
-        // if (user.name === 'admin' && user.password === 'admin') {
-        //     localStorage.setItem('user', user)
-        //     this.props.history.replace('/')
-        // }
+        // Fake authentication
+        if (this.state.username === 'admin' && this.state.password === 'admin') {
+            // localStorage.setItem('user', user)
+            this.props.history.replace('/')
+        }
     }
 
     render() {
@@ -69,7 +72,7 @@ class Signin extends React.Component<Props, {}> {
                             Sign in
                         </Typography>
     
-                        <form className={clsx(classes.form)} noValidate onSubmit={this.handleSigninSubmit}>
+                        <form className={clsx(classes.form)} noValidate onSubmit={this.handleSubmit}>
                             <InputField
                                 id="username"
                                 name="username"
