@@ -7,6 +7,7 @@ import './App.css';
 import { store } from '../store/store';
 import NavigationBar from '../containers/navibar/AppBar'
 import Signin from '../containers/login/Signin'
+import Signup from '../containers/login/Signup'
 
 const theme = createMuiTheme({
   palette: {
@@ -23,7 +24,7 @@ class App extends Component {
           <MuiThemeProvider theme={theme}>
             <Route exact path="/" component={NavigationBar} />
             <Route exact path="/signin" component={Signin} />
-            {/* <Route exact path="/signup" component={Signup} /> */}
+            <Route exact path="/signup" component={Signup} />
           </MuiThemeProvider>
         </Router>
       </Provider>      
