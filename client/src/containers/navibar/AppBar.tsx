@@ -1,4 +1,4 @@
 import { connect } from 'react-redux';
-import MiniDrawer from '../../components/NavigationBar/AppBar'
+import MiniDrawer from '../../components/navibar/AppBar'
 
 export default connect()(MiniDrawer);
