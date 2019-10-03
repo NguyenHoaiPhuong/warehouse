@@ -3,7 +3,6 @@ export interface UserState {
     lastName: string,
     userName: string,
     email?: string,
-    isAuthenticated: boolean
 }
 
 export const InitialUserState: UserState = {
@@ -11,5 +10,4 @@ export const InitialUserState: UserState = {
     lastName: "",
     userName: "",
     email: "",
-    isAuthenticated: false
 }

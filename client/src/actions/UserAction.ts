@@ -1,15 +1,7 @@
 import { Action } from 'redux'
+import { ActionType } from './ActionType'
 
-export enum UserActionType {
-    LOGIN_REQUEST,
-    LOGIN_FAIL,
-    LOGIN_SUCCESS,
-    LOGOUT_REQUEST,
-    LOGOUT_FAIL,
-    LOGOUT_SUCCESS
-}
-
-export interface UserAction extends Action<UserActionType> {
+export interface UserAction extends Action<ActionType> {
     payload?: any
 }
 
@@ -18,14 +10,14 @@ export interface LoginInfo {
     password: string
 }
 
-/* Action creators */
+/* User Action creators */
 export function login(username:string, password: string): UserAction {
     let loginInfo: LoginInfo = {
         username: username,
         password: password
     }
     let action: UserAction = {
-        type: UserActionType.LOGIN_REQUEST,
+        type: ActionType.LOGIN_REQUEST,
         payload: loginInfo
     }
     return action
