@@ -3,7 +3,8 @@ import MiniDrawer from '../../components/navibar/AppBar'
 import { AuthState } from '../../states/AuthState';
 
 const mapStateToProps = (state: AuthState) => ({
-    isAuthenticated: (state.accessToken === "")? false : true
+    accessToken: state.accessToken,
+    refreshToken: state.refreshToken
 })
 
 const mapDispatchToProps = {

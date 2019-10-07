@@ -27,7 +27,8 @@ import { styles } from './styles'
 interface Props {
   classes: any;
   theme?: any;
-  isAuthenticated: boolean;
+  accessToken: string;
+  refreshToken: string;
 }
 
 interface States {
@@ -59,8 +60,10 @@ class MiniDrawer extends React.Component<Props, States> {
   };
 
   render() {
-    const {classes, theme, isAuthenticated } = this.props
-    console.log(isAuthenticated)
+    const {classes, theme, accessToken, refreshToken } = this.props
+    console.log(accessToken)
+    console.log(refreshToken)
+    let isAuthenticated: boolean = (accessToken && accessToken.length > 0)? true : false
     if (isAuthenticated) {
       return (
         <div className={classes.root}>
