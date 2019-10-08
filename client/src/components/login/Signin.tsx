@@ -20,6 +20,8 @@ import Copyright from './Copyright'
 import InputField from './InputField'
 import SubmitButton from './SubmitButton'
 
+import { IsAuthenticated } from '../../auth/authentication'
+
 import styles from './styles'
 
 type Props = {
@@ -52,10 +54,8 @@ class Signin extends React.Component<Props, States> {
         console.log(username);
         console.log(password);
 
-        // Fake authentication
-        if (username === 'admin' && password === 'admin') {
-            console.log('hahahhahah')
-            this.props.history.push('/')
+        if (IsAuthenticated(username, password)) {
+            this.props.history.replace('/')
         }
     }
 
