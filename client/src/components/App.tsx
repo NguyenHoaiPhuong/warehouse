@@ -18,6 +18,10 @@ const theme = createMuiTheme({
   }
 })
 
+store.subscribe(() => {
+  console.log(store.getState())
+})
+
 class App extends Component {
   render() {
     return(
