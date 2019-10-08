@@ -28,8 +28,7 @@ type Props = {
 }
 
 type States = {
-    username:string,
-    password: string
+
 }
 
 class Signin extends React.Component<Props, States> {
@@ -37,8 +36,7 @@ class Signin extends React.Component<Props, States> {
         super(props)
     
         this.state = {
-            username: "",
-            password: ""
+            
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -46,11 +44,18 @@ class Signin extends React.Component<Props, States> {
     
     handleSubmit(event: React.FormEvent) {
         event.preventDefault();
+        let usernameElem = document.getElementById('username') as HTMLElement
+        let passwordElem = document.getElementById('password') as HTMLElement
+        let username = usernameElem.getAttribute('value') as string
+        let password = passwordElem.getAttribute('value') as string
+
+        console.log(username);
+        console.log(password);
 
         // Fake authentication
-        if (this.state.username === 'admin' && this.state.password === 'admin') {
-            // localStorage.setItem('user', user)
-            this.props.history.replace('/')
+        if (username === 'admin' && password === 'admin') {
+            console.log('hahahhahah')
+            this.props.history.push('/')
         }
     }
 
