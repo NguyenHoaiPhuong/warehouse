@@ -1,15 +1,15 @@
 export interface UserState {
-    firstName: string,
-    lastName: string,
-    userName: string,
-    email?: string,
-    password: string
+    FirstName: string,
+    LastName: string,
+    UserName: string,
+    Email?: string,
+    Password: string
 }
 
 export const InitialUserState: UserState = {
-    firstName: "",
-    lastName: "",
-    userName: "",
-    email: "",
-    password: "",
+    FirstName: "",
+    LastName: "",
+    UserName: "",
+    Email: "",
+    Password: "",
 }

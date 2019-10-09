@@ -4,5 +4,7 @@ export enum ActionType {
     LOGIN_SUCCESS,
     LOGOUT_REQUEST,
     LOGOUT_FAIL,
-    LOGOUT_SUCCESS
+    LOGOUT_SUCCESS,
+
+    UPDATE_TOKEN_PAIR
 }
