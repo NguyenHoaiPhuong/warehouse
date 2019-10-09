@@ -51,9 +51,6 @@ class Signin extends React.Component<Props, States> {
         let username = usernameElem.getAttribute('value') as string
         let password = passwordElem.getAttribute('value') as string
 
-        console.log(username);
-        console.log(password);
-
         if (IsAuthenticated(username, password)) {
             this.props.history.replace('/')
         }
