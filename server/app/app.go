@@ -39,6 +39,7 @@ func (a *App) initAPIs() {
 	a.apis = new(api.APIs)
 	a.apis.Init()
 
+	a.apis.User.RegisterHandleFunction("GET", "/login", a.authenticate)
 }
 
 func (a *App) initRepo() {

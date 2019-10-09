@@ -6,15 +6,15 @@ import (
 
 // APIs include all apis
 type APIs struct {
-	Root  *mux.Router
-	users Users
-	user  User
+	Root *mux.Router
+	Users
+	User
 }
 
 // Init : initialize all apis
 func (apis *APIs) Init() {
 	apis.Root = mux.NewRouter()
 
-	apis.users.init(apis.Root, "/internal/users")
-	apis.user.init(apis.Root, "/internal/user")
+	apis.Users.init(apis.Root, "/apis/internal/users")
+	apis.User.init(apis.Root, "/apis/internal/user")
 }
