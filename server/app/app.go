@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/NguyenHoaiPhuong/kanban/server/api"
-	"github.com/NguyenHoaiPhuong/kanban/server/config"
-	"github.com/NguyenHoaiPhuong/kanban/server/repo"
+	"github.com/NguyenHoaiPhuong/warehouse/server/api"
+	"github.com/NguyenHoaiPhuong/warehouse/server/config"
+	"github.com/NguyenHoaiPhuong/warehouse/server/repo"
 )
 
 // App struct
@@ -21,8 +21,8 @@ type App struct {
 // Init : initialize settings
 func (a *App) Init() {
 	a.initConfig()
-	a.initAPIs()
 	a.initRepo()
+	a.initAPIs()
 }
 
 func (a *App) initConfig() {
@@ -38,6 +38,7 @@ func (a *App) initAPIs() {
 	log.Println("Initialize APIs")
 	a.apis = new(api.APIs)
 	a.apis.Init()
+
 }
 
 func (a *App) initRepo() {

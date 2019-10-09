@@ -1,6 +1,6 @@
 package main
 
-import "github.com/NguyenHoaiPhuong/kanban/server/app"
+import "github.com/NguyenHoaiPhuong/warehouse/server/app"
 
 func main() {
 	a := new(app.App)
