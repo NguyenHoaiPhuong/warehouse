@@ -39,7 +39,9 @@ func (a *App) initAPIs() {
 	a.apis = new(api.APIs)
 	a.apis.Init()
 
-	a.apis.User.RegisterHandleFunction("GET", "/login", a.authenticate)
+	a.apis.User.RegisterHandleFunction("POST", "/login", a.authenticate)
+	a.apis.User.RegisterHandleFunction("OPTIONS", "/login", a.enableCORS)
+	// a.apis.User.RegisterHandleFunction("OPTIONS", "/", a.enableCORS)
 }
 
 func (a *App) initRepo() {
