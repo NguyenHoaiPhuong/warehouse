@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 	"net/http"
+	"reflect"
 
 	"github.com/NguyenHoaiPhuong/warehouse/server/jsonfunc"
 	"github.com/NguyenHoaiPhuong/warehouse/server/models"
@@ -27,7 +28,7 @@ func (a *App) authenticate(w http.ResponseWriter, r *http.Request) {
 
 	colName := "Users"
 	fieldName := "UserName"
-	mod, err := a.mdb.GetDocumentByKey(context.Background(), colName, fieldName, user.UserName)
+	mod, err := a.mdb.GetDocumentByKey(context.Background(), colName, reflect.TypeOf(user), fieldName, user.UserName)
 	if err != nil {
 		utils.RespondError(w, http.StatusInternalServerError, err.Error())
 		log.Printf("Getting user %s in database error: %v\n", user.UserName, err.Error())
