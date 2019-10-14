@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import MiniDrawer from '../../components/navibar/AppBar'
-import { AuthState } from '../../states/AuthState';
 import { AppState } from '../../states/AppState';
 
 const mapStateToProps = (state: AppState) => ({
