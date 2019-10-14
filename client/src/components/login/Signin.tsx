@@ -44,15 +44,19 @@ class Signin extends React.Component<Props, States> {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     
-    handleSubmit(event: React.FormEvent) {
+    async handleSubmit(event: React.FormEvent) {
         event.preventDefault();
         let usernameElem = document.getElementById('username') as HTMLElement
         let passwordElem = document.getElementById('password') as HTMLElement
         let username = usernameElem.getAttribute('value') as string
         let password = passwordElem.getAttribute('value') as string
 
-        if (IsAuthenticated(username, password)) {
+        let isAuthenticated = await IsAuthenticated(username, password)
+        if (isAuthenticated) {
+            console.log("IsAuthenticated true")
             this.props.history.replace('/')
+        } else {
+            console.log("IsAuthenticated false")
         }
     }
 

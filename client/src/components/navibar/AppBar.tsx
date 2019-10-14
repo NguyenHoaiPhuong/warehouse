@@ -61,8 +61,7 @@ class MiniDrawer extends React.Component<Props, States> {
 
   render() {
     const {classes, theme, accessToken, refreshToken } = this.props
-    console.log("accessToken:", accessToken)
-    console.log("refreshToken:", refreshToken)
+
     let isAuthenticated: boolean = (accessToken && accessToken.length > 0)? true : false
     if (isAuthenticated) {
       return (

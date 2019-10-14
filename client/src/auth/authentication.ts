@@ -6,13 +6,13 @@ import { AuthAction } from '../actions/AuthAction'
 export const ServerHost = "localhost"
 export const ServerPort = "9001"
 
-export const IsAuthenticated = (username: string, password: string) => {
+export const IsAuthenticated = async (username: string, password: string) => {
     let user = {
         UserName: username,
         Password: password
     }
-
-    axios.post("http://" + ServerHost + ":" + ServerPort +  "/apis/internal/user/login", user).then((response) => {
+    let bRes = false
+    await axios.post("http://" + ServerHost + ":" + ServerPort +  "/apis/internal/user/login", user).then((response) => {
         let {access_token, refresh_token} = response.data
         let action: AuthAction = {
             type: ActionType.UPDATE_TOKEN_PAIR,
@@ -22,9 +22,9 @@ export const IsAuthenticated = (username: string, password: string) => {
             }
         }
         store.dispatch(action)
-
-        return true
+        
+        bRes = true
     })  
 
-    return false
+    return bRes
 }

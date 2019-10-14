@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import MiniDrawer from '../../components/navibar/AppBar'
 import { AuthState } from '../../states/AuthState';
+import { AppState } from '../../states/AppState';
 
-const mapStateToProps = (state: AuthState) => ({
-    accessToken: state.accessToken,
-    refreshToken: state.refreshToken
+const mapStateToProps = (state: AppState) => ({
+    accessToken: state.auth.accessToken,
+    refreshToken: state.auth.refreshToken
 })
 
 const mapDispatchToProps = {
