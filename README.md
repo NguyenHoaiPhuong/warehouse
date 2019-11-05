@@ -1,3 +1,14 @@
+# Warehouse metrics
+
+- This project is composed of 2 major packages: client and server.
+
+- Client is mainly programmed by reactjs. Some frameworks being used are listed below:
+
+    * redux
+    * router
+
+- Server is programmed by GO langague.
+
 # Client
 ## Installation
 * npx create-react-app client --typescript
