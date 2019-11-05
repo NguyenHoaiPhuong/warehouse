@@ -26,3 +26,6 @@ vendor
 *yarn.lock
 
 *package-lock.json
+
+###################### Docker ######################
+dockerdata

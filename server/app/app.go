@@ -52,11 +52,11 @@ func (a *App) initRepo() {
 
 // Run server
 func (a *App) Run() {
-	log.Println("Run the app on port 9001")
+	log.Println("Run the app on port 5000")
 
 	srv := &http.Server{
 		Handler:      a.apis.Root,
-		Addr:         ":9001",
+		Addr:         ":5000",
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}

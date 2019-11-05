@@ -1,0 +1,55 @@
+version: '3'
+services:
+  server:
+    image: warehouse_server:0.1.0
+    container_name: itv-server
+    # environment:
+    #   SERVER_DIR: ${SERVER_DIR}    
+    build: ./server
+    volumes:
+      - '$PWD/server:${SERVER_DIR}'
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    expose:
+      - ${SERVER_PORT}
+    depends_on:
+      - mongo
+    command: ["go", "run", "main.go"]
+    # command: ./server
+    networks:
+      - itv-network
+
+  client:
+    image: warehouse_client:0.1.0
+    container_name: itv-client
+    # environment:
+    #   CLIENT_DIR: ${CLIENT_DIR}    
+    build: ./client
+    volumes:
+      - '$PWD/client:${CLIENT_DIR}'
+    ports:
+      - ${CLIENT_PORT}:${CLIENT_PORT}
+    expose:
+      - ${CLIENT_PORT}
+    command: serve -s build -l ${CLIENT_PORT}
+    networks:
+      - itv-network
+
+  mongo:
+    image: mongo:4.2.1
+    container_name: itv-mongo
+    ports:
+      - "27019:27019"
+    expose:
+      - 27019
+    command: mongod --port 27019
+    volumes:
+      - "$PWD/dockerdata/mongodb:/data/mongodb"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: itv
+      MONGO_INITDB_ROOT_PASSWORD: itv
+    networks:
+      - itv-network
+
+networks:
+  itv-network:
