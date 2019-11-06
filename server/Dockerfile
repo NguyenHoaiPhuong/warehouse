@@ -1,13 +1,13 @@
 FROM golang:1.13.3-alpine3.10
 
-# Environment app directory
-ENV APP_DIR /go/src/github.com/NguyenHoaiPhuong/warehouse/server
+# Set ARGS
+ARG SERVER_DIR
 
 # Create app directory
-RUN mkdir -p ${APP_DIR}
+RUN mkdir -p ${SERVER_DIR}
 
 # Set working directory in the image
-WORKDIR ${APP_DIR}
+WORKDIR ${SERVER_DIR}
 
 # install git, bash and dep
 RUN apk add --update --no-cache git && \
@@ -20,7 +20,7 @@ COPY . .
 # Run dep ensure to install all dependencies specified in Gopkg
 RUN dep ensure
 
-# RUN cd ${APP_DIR} && \
+# RUN cd ${SERVER_DIR} && \
 #     go build && \
 #     chmod u+x server
 

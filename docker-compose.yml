@@ -4,8 +4,12 @@ services:
     image: warehouse_server:0.1.0
     container_name: itv-server
     # environment:
-    #   SERVER_DIR: ${SERVER_DIR}    
-    build: ./server
+    #   SERVER_DIR: ${SERVER_DIR}
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      args:
+        SERVER_DIR: ${SERVER_DIR}
     volumes:
       - '$PWD/server:${SERVER_DIR}'
     ports:
@@ -23,10 +27,18 @@ services:
     image: warehouse_client:0.1.0
     container_name: itv-client
     # environment:
-    #   CLIENT_DIR: ${CLIENT_DIR}    
-    build: ./client
+    #   CLIENT_DIR: ${CLIENT_DIR}
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        CLIENT_DIR: ${CLIENT_DIR}
     volumes:
-      - '$PWD/client:${CLIENT_DIR}'
+      - $PWD/client:${CLIENT_DIR}
+      - $PWD/client/node_modules:${CLIENT_DIR}/node_modules
+      - $PWD/client/build:${CLIENT_DIR}/build
+      - $PWD/client/public:${CLIENT_DIR}/public
+      - $PWD/client/src:${CLIENT_DIR}/src
     ports:
       - ${CLIENT_PORT}:${CLIENT_PORT}
     expose:

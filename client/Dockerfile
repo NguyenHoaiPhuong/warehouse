@@ -1,22 +1,53 @@
-FROM node:13.0.1-alpine
+# FROM node:13.0.1-alpine
 
-# Environment app directory
-ENV APP_DIR /go/src/github.com/NguyenHoaiPhuong/warehouse/client
+# # Set ARGS
+# ARG CLIENT_DIR
+
+# # Create app directory
+# RUN mkdir -p ${CLIENT_DIR}
+
+# # Set working directory in the image
+# WORKDIR ${CLIENT_DIR}
+
+# COPY package.json .
+
+# COPY package-lock.json .
+
+# RUN npm install -g serve
+
+# RUN npm install
+
+# COPY . .
+
+# RUN npm run build
+
+FROM ubuntu:18.04
+
+# install curl
+RUN apt-get update \
+  && apt-get install -y curl
+
+# install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_13.x | bash
+RUN apt-get install -y nodejs
+
+# Set ARGS
+ARG CLIENT_DIR
 
 # Create app directory
-RUN mkdir -p ${APP_DIR}
+RUN mkdir -p ${CLIENT_DIR}
 
 # Set working directory in the image
-WORKDIR ${APP_DIR}
+WORKDIR ${CLIENT_DIR}
 
 COPY package.json .
 
-COPY yarn.lock .
+COPY package-lock.json .
 
-RUN npm install -g yarn serve
+RUN npm install -g serve
 
-RUN yarn install
+RUN npm install
 
 COPY . .
 
-RUN yarn build
+RUN npm run build

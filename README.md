@@ -39,3 +39,21 @@
 Refer to following link for "How to use Immutable.js Records with React and Redux":
 
 https://medium.com/azendoo-team/immutable-record-react-redux-99f389ed676
+
+
+# References
+
+## Frontend
+
+- Axios Interceptors:
+
+    https://medium.com/swlh/handling-access-and-refresh-tokens-using-axios-interceptors-3970b601a5da
+
+## Backend
+
+## Docker
+
+- Docker env and arg:
+
+    https://vsupalov.com/docker-arg-env-variable-guide/#arg-and-env-availability
+
