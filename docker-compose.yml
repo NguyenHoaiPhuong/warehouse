@@ -11,7 +11,7 @@ services:
       args:
         SERVER_DIR: ${SERVER_DIR}
     volumes:
-      - '$PWD/server:${SERVER_DIR}'
+      - $PWD/server:${SERVER_DIR}
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
     expose:
@@ -34,11 +34,8 @@ services:
       args:
         CLIENT_DIR: ${CLIENT_DIR}
     volumes:
-      - $PWD/client:${CLIENT_DIR}
-      # - '${CLIENT_DIR}/node_modules'
-      # - $PWD/client/build:${CLIENT_DIR}/build
-      # - $PWD/client/public:${CLIENT_DIR}/public
-      # - $PWD/client/src:${CLIENT_DIR}/src
+      - $PWD/client/public:${CLIENT_DIR}/public
+      - $PWD/client/src:${CLIENT_DIR}/src
     ports:
       - ${CLIENT_PORT}:${CLIENT_PORT}
     expose:
