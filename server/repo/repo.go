@@ -19,9 +19,9 @@ type MongoDB struct {
 }
 
 // Init : initialize MongoDB
-func (mdb *MongoDB) Init(host, port, dbName string) {
+func (mdb *MongoDB) Init(serverHost, serverPort, username, password, dbName string) {
 	ctx := context.Background()
-	client, err := mongodb.CreateClient(ctx, host, port, "", "", "")
+	client, err := mongodb.CreateClient(ctx, serverHost, serverPort, username, password, dbName)
 	if err != nil {
 		log.Fatalln("Init MongoDB Error:", err)
 	}

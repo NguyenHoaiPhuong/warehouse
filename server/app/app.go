@@ -47,7 +47,7 @@ func (a *App) initAPIs() {
 func (a *App) initRepo() {
 	log.Println("Initialize MongoDB")
 	a.mdb = new(repo.MongoDB)
-	a.mdb.Init(*a.cfg.Host, *a.cfg.Port, *a.cfg.DBName)
+	a.mdb.Init(*a.cfg.Host, *a.cfg.Port, *a.cfg.UserName, *a.cfg.Password, *a.cfg.DBName)
 }
 
 // Run server
