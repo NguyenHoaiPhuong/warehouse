@@ -57,3 +57,14 @@ https://medium.com/azendoo-team/immutable-record-react-redux-99f389ed676
 
     https://vsupalov.com/docker-arg-env-variable-guide/#arg-and-env-availability
 
+- Add user and group:
+
+    https://stackoverflow.com/questions/49955097/how-do-i-add-a-user-when-im-using-alpine-as-a-base-image
+
+- docker for nodejs:
+
+    https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#global-npm-dependencies
+
+- RUN vs CMD vs ENTRYPOINT
+
+    https://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/
