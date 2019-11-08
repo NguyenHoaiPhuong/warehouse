@@ -19,7 +19,7 @@ services:
       - ${SERVER_PORT}
     depends_on:
       - mongo
-    command: ["go", "run", "main.go"]
+    command: go run main.go --ServerHost=${MDB_SERVER_HOST} --ServerPort=${MDB_SERVER_PORT} --ServerUsername=${MDB_SERVER_USERNAME} --ServerPassword=${MDB_SERVER_PASSWORD}
     # command: ./server
     networks:
       - itv-network
@@ -49,10 +49,10 @@ services:
     image: mongo:4.2.1
     container_name: itv-mongo
     ports:
-      - "27019:27019"
+      - "${MDB_SERVER_PORT}:${MDB_SERVER_PORT}"
     expose:
-      - 27019
-    command: mongod --port 27019
+      - ${MDB_SERVER_PORT}
+    command: mongod --port ${MDB_SERVER_PORT}
     volumes:
       - "$PWD/dockerdata/mongodb:/data/mongodb"
     environment:

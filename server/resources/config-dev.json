@@ -1,6 +1,6 @@
 {
-    "ServerHost": "itv-mongo",
-    "ServerPort": "27019",
+    "ServerHost": "localhost",
+    "ServerPort": "27017",
     "ServerUsername": "itv",
     "ServerPassword": "itv",
     "DatabaseName": "ITV"
