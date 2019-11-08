@@ -2,12 +2,12 @@ package app
 
 import (
 	"context"
-	"log"
 	"net/http"
 	"time"
 
 	"github.com/NguyenHoaiPhuong/warehouse/server/api"
 	"github.com/NguyenHoaiPhuong/warehouse/server/config"
+	"github.com/NguyenHoaiPhuong/warehouse/server/log"
 	"github.com/NguyenHoaiPhuong/warehouse/server/repo"
 )
 
@@ -26,16 +26,16 @@ func (a *App) Init() {
 }
 
 func (a *App) initConfig() {
-	log.Println("Init config:")
+	log.Info("Init config:")
 	a.cfg = config.SetupConfig("./resources/config-dev.json")
 
-	log.Println("Host:", *a.cfg.Host)
-	log.Println("Port:", *a.cfg.Port)
-	log.Println("Database name:", *a.cfg.DBName)
+	log.Info("Host:", *a.cfg.Host)
+	log.Info("Port:", *a.cfg.Port)
+	log.Info("Database name:", *a.cfg.DBName)
 }
 
 func (a *App) initAPIs() {
-	log.Println("Initialize APIs")
+	log.Info("Initialize APIs")
 	a.apis = new(api.APIs)
 	a.apis.Init()
 
@@ -45,14 +45,14 @@ func (a *App) initAPIs() {
 }
 
 func (a *App) initRepo() {
-	log.Println("Initialize MongoDB")
+	log.Info("Initialize MongoDB")
 	a.mdb = new(repo.MongoDB)
 	a.mdb.Init(*a.cfg.Host, *a.cfg.Port, *a.cfg.UserName, *a.cfg.Password, *a.cfg.DBName)
 }
 
 // Run server
 func (a *App) Run() {
-	log.Println("Run the app on port 5000")
+	log.Info("Run the app on port 5000")
 
 	srv := &http.Server{
 		Handler:      a.apis.Root,
