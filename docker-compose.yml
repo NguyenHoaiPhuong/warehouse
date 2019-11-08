@@ -12,6 +12,7 @@ services:
         SERVER_DIR: ${SERVER_DIR}
     volumes:
       - $PWD/server:${SERVER_DIR}
+      - ${SERVER_DIR}/vendor/
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
     expose:
