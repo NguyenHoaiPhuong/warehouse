@@ -24,11 +24,11 @@ import ListItem from '@material-ui/core/ListItem';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './styles'
 
+import LocalStorageService from '../../services/LocalStorage'
+
 interface Props {
   classes: any;
   theme?: any;
-  accessToken: string;
-  refreshToken: string;
 }
 
 interface States {
@@ -60,9 +60,9 @@ class MiniDrawer extends React.Component<Props, States> {
   };
 
   render() {
-    const {classes, theme, accessToken, refreshToken } = this.props
+    const {classes, theme} = this.props
 
-    let isAuthenticated: boolean = (accessToken && accessToken.length > 0)? true : false
+    let isAuthenticated: boolean = (LocalStorageService.getService().getAccessToken() !== null)? true : false
     if (isAuthenticated) {
       return (
         <div className={classes.root}>

@@ -21,6 +21,7 @@ import InputField from './InputField'
 import SubmitButton from './SubmitButton'
 
 import { Login } from '../../services/Login'
+import LocalStorageService from '../../services/LocalStorage'
 
 import styles from './styles'
 
@@ -51,11 +52,12 @@ class Signin extends React.Component<Props, States> {
         let username = usernameElem.getAttribute('value') as string
         let password = passwordElem.getAttribute('value') as string
 
-        let isAuthenticated = await Login(username, password)
-        if (isAuthenticated) {
+        await Login(username, password)
+
+        if (LocalStorageService.getService().getAccessToken() !== null) {
             this.props.history.replace('/')
         } else {
-            console.log("IsAuthenticated false")
+            console.log("Login failed")
         }
     }
 

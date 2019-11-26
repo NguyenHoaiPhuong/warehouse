@@ -1,4 +1,4 @@
-import { AuthState } from '../states/AuthState'
+import { IAuthToken } from './Auth'
 
 class LocalStorageService {
     private static _service: LocalStorageService;
@@ -11,22 +11,22 @@ class LocalStorageService {
         return LocalStorageService._service;
     }
 
-    public setToken(tokenObj:AuthState) {
-        localStorage.setItem('accessToken', tokenObj.accessToken);
-        localStorage.setItem('refreshToken', tokenObj.refreshToken);
+    public setToken(tokenObj: IAuthToken) {
+        localStorage.setItem('access_token', tokenObj.access_token);
+        localStorage.setItem('refresh_token', tokenObj.refresh_token);
     }
 
     public getAccessToken():string | null {
-        return localStorage.getItem('accessToken');
+        return localStorage.getItem('access_token');
     }
 
     public getRefreshToken():string | null {
-        return localStorage.getItem('refreshToken');
+        return localStorage.getItem('refresh_token');
     }
 
     public clearToken() {
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('refreshToken');
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
     }
 }
 
