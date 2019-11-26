@@ -20,7 +20,7 @@ import Copyright from './Copyright'
 import InputField from './InputField'
 import SubmitButton from './SubmitButton'
 
-import { IsAuthenticated } from '../../auth/authentication'
+import { Login } from '../../services/Login'
 
 import styles from './styles'
 
@@ -51,9 +51,8 @@ class Signin extends React.Component<Props, States> {
         let username = usernameElem.getAttribute('value') as string
         let password = passwordElem.getAttribute('value') as string
 
-        let isAuthenticated = await IsAuthenticated(username, password)
+        let isAuthenticated = await Login(username, password)
         if (isAuthenticated) {
-            console.log("IsAuthenticated true")
             this.props.history.replace('/')
         } else {
             console.log("IsAuthenticated false")
