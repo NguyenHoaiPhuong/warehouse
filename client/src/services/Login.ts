@@ -16,12 +16,16 @@ export const Login = async (username: string, password: string) => {
     }
     let url = "http://" + ServerHost + ":" + ServerPort + loginPath    
     
-    await axios.post(url, user).then((response) => {
-        let {access_token, refresh_token} = response.data
-        let token: IAuthToken = {
-            access_token: access_token,
-            refresh_token: refresh_token
+    axios.post(url, user).then(
+        (response) => {
+            let {access_token, refresh_token} = response.data
+            let token: IAuthToken = {
+                access_token: access_token,
+                refresh_token: refresh_token
+            }
+            LocalStorageService.getService().setToken(token)
+        }, (error) => {
+            console.log(error)
         }
-        LocalStorageService.getService().setToken(token)
-    })
+    )
 }
