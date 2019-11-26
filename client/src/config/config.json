@@ -1,0 +1,5 @@
+{
+    "serverHost": "localhost",
+    "serverPort": "5000",
+    "loginPath": "/apis/internal/user/login"
+}
