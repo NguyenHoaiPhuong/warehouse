@@ -55,6 +55,7 @@ services:
     command: mongod --port ${MDB_SERVER_PORT}
     volumes:
       - "$PWD/dockerdata/mongodb:/data/mongodb"
+      - "$PWD/mongodb/backup/data:/mongodb/backup/data"
     environment:
       MONGO_INITDB_ROOT_USERNAME: itv
       MONGO_INITDB_ROOT_PASSWORD: itv
