@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"ITV.Users"}],"uuid":"d1dfda6019e8402fbc5e08ff70cc030b"}
