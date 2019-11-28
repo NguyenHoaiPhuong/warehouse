@@ -9,13 +9,32 @@
 
 - Server is programmed by GO langague.
 
-# Client
 ## Installation
-* npx create-react-app client --typescript
-### React
-* react-scripts-ts
+Firstly make sure that you have Node, Docker and Git installed. Next clone this repo https://github.com/NguyenHoaiPhuong/warehouse.git. You can do this by going into your shell of choice and entering
 
-### Typescript
+```
+git clone https://github.com/NguyenHoaiPhuong/warehouse.git
+```
+
+Then, access the project directory (warehouse) and run docker-compose up as shown below:
+
+```
+cd warehouse
+docker-compose up
+```
+
+Next, open a new terminal and access the project directory again. Restore the backup database by make command:
+
+```
+make restore-backup-db
+```
+
+Finally, open your web browser and access http://localhost:5001/. At the beginning, you will be requested to login. The default username and password are ***admin***. After login successfully, you will be able to access the home page.
+
+## Tech stack
+
+### Frontend
+
 * typescript
 * @types/react
 * @types/react-dom
@@ -24,34 +43,26 @@
 * @types/react-router-dom
 * @types/redux
 
-### Material UI
 * @material-ui/core
 * @material-ui/icons
 
-### Redux
 * react-redux
 * redux-thunk
 
-### Router
 * react-router-dom
 
-### Record
-Refer to following link for "How to use Immutable.js Records with React and Redux":
+- Refer to following link for "How to use Immutable.js Records with React and Redux":
 
 https://medium.com/azendoo-team/immutable-record-react-redux-99f389ed676
 
-
-# References
-
-## Frontend
 
 - Axios Interceptors:
 
     https://medium.com/swlh/handling-access-and-refresh-tokens-using-axios-interceptors-3970b601a5da
 
-## Backend
+### Backend
 
-## Docker
+### Docker
 
 - Docker env and arg:
 
